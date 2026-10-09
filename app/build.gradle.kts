@@ -6,13 +6,11 @@ plugins {
 
 android {
     namespace = "com.example.rawcamera"
-    // Zmieniono na 35 dla 100% stabilności z AGP 8.7.3. 
-    // Jeśli chcesz 36, dodaj flagę do gradle.properties (patrz niżej).
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.rawcamera"
-        minSdk = 30 // Android 11+ (wymagane dla CONTROL_ZOOM_RATIO)
+        minSdk = 30
         targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
@@ -44,18 +42,15 @@ android {
 }
 
 dependencies {
-    // Compose BOM zarządza wersjami wszystkich bibliotek compose, zapobiegając konfliktom
     val composeBom = platform("androidx.compose:compose-bom:2024.12.01")
     implementation(composeBom)
 
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.activity:activity-compose:1.9.3")
     
-    // POPRAWIONE WERSJE (2.8.7 to najnowsza stabilna)
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
 
-    // Material 3 (wersje zarządzane przez BOM, więc nie trzeba podawać numerów)
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material3:material3-window-size-class")
     implementation("androidx.compose.ui:ui")
@@ -63,7 +58,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material:material-icons-extended")
 
-    // Narzędzia debugowania
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
