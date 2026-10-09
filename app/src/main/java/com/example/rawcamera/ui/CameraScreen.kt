@@ -166,9 +166,9 @@ fun CameraScreen(viewModel: CameraViewModel = viewModel()) {
             }
 
             // Status
-            statusMessage?.let {
+            if (statusMessage != null) {
                 Text(
-                    it,
+                    statusMessage,
                     color = Color.White,
                     style = MaterialTheme.typography.labelSmall,
                     modifier = Modifier
@@ -176,7 +176,9 @@ fun CameraScreen(viewModel: CameraViewModel = viewModel()) {
                         .background(Color.Black.copy(alpha = 0.6f))
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 )
-            } ?: Spacer(Modifier.size(64.dp))
+            } else {
+                Spacer(Modifier.size(64.dp))
+            }
         }
     }
 
@@ -185,7 +187,6 @@ fun CameraScreen(viewModel: CameraViewModel = viewModel()) {
     }
 }
 
-@androidx.lifecycle.ViewModel
 class CameraViewModel : androidx.lifecycle.ViewModel() {
     private val _settings = mutableStateOf(CameraSettings())
     val settings: State<CameraSettings> = _settings
