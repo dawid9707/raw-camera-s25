@@ -1,0 +1,3 @@
+-keep class com.example.rawcamera.** { *; }
+-keepclassmembers class * extends androidx.camera.** { *; }
+-dontwarn android.hardware.camera2.**
