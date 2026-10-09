@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">RAW Camera</string>
-    <string name="capture">Zrób zdjęcie</string>
-    <string name="switch_lens">Zmień obiektyw</string>
-    <string name="raw_enabled">RAW + JPEG</string>
-    <string name="raw_disabled">JPEG only</string>
 </resources>
